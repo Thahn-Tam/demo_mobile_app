@@ -2,10 +2,10 @@
 
 Demo project hướng dẫn **Unit Testing** với **Jest** và **React Native Testing Library** cho môn **Phát triển Ứng dụng trên Thiết bị Di động (CO3043)**.
 
-[![Run Tests](https://github.com/YOUR_USERNAME/demo_mobile/actions/workflows/test.yml/badge.svg)](https://github.com/YOUR_USERNAME/demo_mobile/actions/workflows/test.yml)
-[![SonarCloud](https://github.com/YOUR_USERNAME/demo_mobile/actions/workflows/sonarcloud.yml/badge.svg)](https://github.com/YOUR_USERNAME/demo_mobile/actions/workflows/sonarcloud.yml)
+[![Run Tests](https://github.com/Thahn-Tam/demo_mobile/actions/workflows/test.yml/badge.svg)](https://github.com/YOUR_USERNAME/demo_mobile/actions/workflows/test.yml)
+[![SonarCloud](https://github.com/Thahn-Tam/demo_mobile/actions/workflows/sonarcloud.yml/badge.svg)](https://github.com/YOUR_USERNAME/demo_mobile/actions/workflows/sonarcloud.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=YOUR_PROJECT_KEY&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=YOUR_PROJECT_KEY)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=YOUR_PROJECT_KEY&metric=coverage)](https://sonarcloud.io/summary/new_code?id=YOUR_PROJECT_KEY)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Thahn-Tam_demo_mobile_app&metric=coverage)](https://sonarcloud.io/summary/new_code?id=YOUR_PROJECT_KEY)
 
 ## Tổng quan
 
@@ -19,9 +19,11 @@ Project này demo các kỹ thuật testing cho React Native app bao gồm:
 ## Screenshots
 
 ### Onboarding Screen
+
 Màn hình giới thiệu với 3 slides, navigation và pagination.
 
 ### Home Screen
+
 Task management app với add, toggle, và delete tasks.
 
 ## Cấu trúc project
@@ -51,12 +53,12 @@ demo_mobile/
 
 Hiện tại project đạt **97.72% coverage**:
 
-| File | % Stmts | % Branch | % Funcs | % Lines |
-|------|---------|----------|---------|---------|
-| **All files** | 97.72 | 90 | 94.44 | 97.61 |
-| App.tsx | 80 | 50 | 50 | 80 |
-| HomeScreen.tsx | 100 | 100 | 100 | 100 |
-| OnboardingScreen.tsx | 100 | 87.5 | 100 | 100 |
+| File                 | % Stmts | % Branch | % Funcs | % Lines |
+| -------------------- | ------- | -------- | ------- | ------- |
+| **All files**  | 97.72   | 90       | 94.44   | 97.61   |
+| App.tsx              | 80      | 50       | 50      | 80      |
+| HomeScreen.tsx       | 100     | 100      | 100     | 100     |
+| OnboardingScreen.tsx | 100     | 87.5     | 100     | 100     |
 
 ---
 
@@ -277,6 +279,7 @@ jobs:
 ### Bước 2: Lấy thông tin project
 
 Sau khi tạo project, lấy thông tin:
+
 - **Organization Key**: Tìm trong Settings → Organization
 - **Project Key**: Hiển thị trên dashboard
 
@@ -375,6 +378,7 @@ jobs:
 ## Best Practices
 
 ### 1. Viết test song song với code
+
 ```bash
 # Mỗi component mới → tạo file test ngay
 ComponentName.tsx
@@ -382,11 +386,13 @@ ComponentName.test.tsx
 ```
 
 ### 2. Chạy test locally trước khi push
+
 ```bash
 npm run test:watch
 ```
 
 ### 3. Sử dụng testID cho UI testing
+
 ```typescript
 <View testID="my-component">
   <Text testID="title">Hello</Text>
@@ -394,12 +400,14 @@ npm run test:watch
 ```
 
 ### 4. Test các trường hợp edge cases
+
 - Empty state
 - Loading state
 - Error state
 - User interactions
 
 ### 5. Maintain high coverage (≥ 70%)
+
 ```bash
 npm run test:coverage
 ```
@@ -411,6 +419,7 @@ npm run test:coverage
 ### 1. Lỗi: "Incorrect version of react-test-renderer"
 
 **Giải pháp:**
+
 ```bash
 npm install -D react-test-renderer@19.1.0 --legacy-peer-deps
 ```
@@ -418,6 +427,7 @@ npm install -D react-test-renderer@19.1.0 --legacy-peer-deps
 ### 2. Lỗi: "You are trying to import a file outside of the scope"
 
 **Giải pháp:** Thêm vào `jest.setup.js`:
+
 ```javascript
 global.__ExpoImportMetaRegistry = {
   register: () => {},
@@ -428,12 +438,14 @@ global.__ExpoImportMetaRegistry = {
 ### 3. Lỗi: GitHub Actions failed
 
 **Giải pháp:**
+
 - Kiểm tra `npm ci --legacy-peer-deps` trong workflow
 - Xem logs chi tiết trong Actions tab
 
 ### 4. SonarCloud không nhận coverage
 
 **Giải pháp:**
+
 - Kiểm tra file `sonar-project.properties`
 - Đảm bảo `coverage/lcov.info` được generate
 - Verify SONAR_TOKEN đã được thêm vào GitHub Secrets
@@ -445,18 +457,21 @@ global.__ExpoImportMetaRegistry = {
 Mỗi nhóm nộp:
 
 ### 1. Link SonarCloud project
+
 - Coverage ≥ 70%
 - Maintainability Rating ≥ A
 - Reliability Rating ≥ A
 - Security Rating ≥ A
 
 ### 2. Screenshots
+
 - SonarCloud Dashboard
 - OnboardingScreen tests (≥ 3 test cases)
 - HomeScreen tests (≥ 3 test cases)
 - GitHub Actions workflow success
 
 ### 3. README.md
+
 - Hướng dẫn chạy test locally
 - Badges (Tests, SonarCloud, Coverage)
 
